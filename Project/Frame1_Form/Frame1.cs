@@ -25,7 +25,7 @@ namespace Project
         String[] rine_Up = { " ORDER BY name asc", " ORDER BY day asc" };
         int rine_name_rm = 0;   // 정렬 name 번호
 
-        Dictionary<String, imformation> dic_Infor = new Dictionary<string,imformation>();
+        Dictionary<String, DicImfor> dic_Infor = new Dictionary<string, DicImfor>();
         public Frame1()
         {
             InitializeComponent();
@@ -131,7 +131,7 @@ namespace Project
             total_Lb.Text = string.Format("{0:n0}", total);
         }
     }
-    class imformation
+    class DicImfor
     {
         String item;       // 0 : 물품명
         String item_code;  // 1 : 제품코드

@@ -335,5 +335,10 @@ namespace Project.SqliteDB
 
            return total_sum;
        }
+
+       public void DB_Binding(int dbfile, String str, Dictionary<String, DicImfor> dic_Infor)
+       {
+
+       }
     }
 }
