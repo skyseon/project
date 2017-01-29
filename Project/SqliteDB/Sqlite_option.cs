@@ -363,7 +363,7 @@ namespace Project.SqliteDB
                    dic.varcode   = (String)reader["바코드"];
                    dic_Infor.Add(dic.varcode, dic);
                }
-
+               
                conn.Close();
 
                return 0;
