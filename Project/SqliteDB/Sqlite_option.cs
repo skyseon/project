@@ -336,9 +336,44 @@ namespace Project.SqliteDB
            return total_sum;
        }
 
-       public void DB_Binding(int dbfile, String str, Dictionary<String, DicImfor> dic_Infor)
+       public int DB_Binding(int dbfile, String strSQL, Dictionary<String, DicImfor> dic_Infor) //DB 바인딩
        {
+           DicImfor dic;
+           String confile = main_dbFile + db_serch[dbfile];    //해당 위치/파일이름
+           int callback = Create_Tabledb(dbfile);       //DB테이블 생성
+           if (callback == 1) return 1;
 
+           
+           confile = @"Data Source=" + confile;    //접속 파일 위치 설정
+           try
+           {
+               SQLiteConnection conn = new SQLiteConnection(confile);   //db파일 연결
+               conn.Open();        //db오픈
+               SQLiteCommand command = new SQLiteCommand(strSQL, conn);
+               SQLiteDataReader reader = command.ExecuteReader();
+
+               while (reader.Read())    //컬럼하나씩 가져오기
+               {
+                   dic  = new DicImfor();
+                   dic.item      = (String)reader["물품명"];
+                   dic.item_code = (String)reader["제품코드"];
+                   dic.amount    = Convert.ToInt32(reader["수량"]);
+                   dic.cash      = Convert.ToInt32(reader["판매단가"]);
+                   dic.money     = Convert.ToInt32(reader["현금단가"]);
+                   dic.varcode   = (String)reader["바코드"];
+                   dic_Infor.Add(dic.varcode, dic);
+               }
+
+               conn.Close();
+
+               return 0;
+
+           }
+           catch (Exception e)
+           {
+               MessageBox.Show(e.Message);
+               return 1;
+           }
        }
     }
 }

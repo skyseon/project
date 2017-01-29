@@ -13,6 +13,8 @@ namespace Project
 {
     public partial class Frame1 : UserControl
     {
+        const int MAX = 200;        //물품 추가시 최종 개수
+        int varcode_Num = 0;        //뷰에 추가 된 코드 알기 위한 함수
         int db_item = 0;
         int search_view_num = 0;
         Sqlite_option sqlite = new Sqlite_option();
@@ -26,10 +28,12 @@ namespace Project
         int rine_name_rm = 0;   // 정렬 name 번호
 
         Dictionary<String, DicImfor> dic_Infor = new Dictionary<string, DicImfor>();
+        List<String> list_Var = new List<String>();
         public Frame1()
         {
             InitializeComponent();
             Search_view_Select();
+            sqlite.DB_Binding(db_item, select_str[db_item], dic_Infor);
         }
 
         private void Search_view_Select()
@@ -95,24 +99,30 @@ namespace Project
               5 : 표시       // 5 : 바코드
               item_view      // search_view
             */
-
+            int num = 0;
+            int view_Varcode = 5;
             int rowNum = 6;
             int rowIndex = search_View.CurrentRow.Index;      //현재 선택 창 가져오기
             String[] search_Str = new String[rowNum];         //기존 데이터 저장
-            dynamic[] main_Str = new dynamic[rowNum];         //뷰에 넣은 데이터 저장
-            for (int i = 0; i < rowNum; i++)    //뷰에있는 데이터 전부 가져 오기
-            {
-                search_Str[i] = search_View.Rows[rowIndex].Cells[i].Value.ToString();
-                if (i == 0 || i == 1 || i == 3)
-                {
-                    main_Str[i] = search_Str[i] ;
-                }
-            }
-            main_Str[2] = 1;                // 수량 넣기
-            main_Str[4] = search_Str[3];    // 금액 == 토탈값
-            main_Str[5] = false;            // 표시
 
-            item_view.Rows.Add(main_Str);
+            String varcode = search_View.Rows[rowIndex].Cells[view_Varcode].Value.ToString(); //바코드 가져오기
+
+            if (list_Var.Contains(varcode))     //중복체크
+            {
+                Oerlap(varcode);
+                Total_Cash();
+              return;
+            }
+
+            search_Str[num++] = dic_Infor[varcode].item;        //물품
+            search_Str[num++] = dic_Infor[varcode].item_code;   //물품코드
+            search_Str[num++] = "1";                            //수량
+            search_Str[num++] = dic_Infor[varcode].cash+"";     //단가
+            search_Str[num++] = dic_Infor[varcode].cash + "";   //총액
+
+            list_Var.Add(varcode);      //바코드 저장
+
+            item_view.Rows.Add(search_Str);
             Total_Cash();
         }
 
@@ -130,14 +140,27 @@ namespace Project
 
             total_Lb.Text = string.Format("{0:n0}", total);
         }
+
+        private void Oerlap(String varcode)
+        {
+            int amount_Ro = 2, cash_Ro = 3, total_Ro = 4;
+            int index = list_Var.IndexOf(varcode);
+
+            int amount = Convert.ToInt32(item_view.Rows[index].Cells[amount_Ro].Value.ToString());  //수량 가져오기
+            int cash = Convert.ToInt32(item_view.Rows[index].Cells[cash_Ro].Value.ToString());      //단가 가져오기
+
+            amount += 1;
+            item_view.Rows[index].Cells[amount_Ro].Value = amount + "";           // 수량 업데이트
+            item_view.Rows[index].Cells[total_Ro].Value = amount * cash + "";     // 총금액 업데이트
+        }
     }
     class DicImfor
     {
-        String item;       // 0 : 물품명
-        String item_code;  // 1 : 제품코드
-        String amount;     // 2 : 수량
-        String cash;       // 3 : 단가
-        String money;      // 4 : 현금
-        String varcode;    // 5 : 바코드
+       public String item;       // 0 : 물품명
+       public String item_code;  // 1 : 제품코드
+       public int amount;     // 2 : 수량
+       public int cash;       // 3 : 단가
+       public int money;      // 4 : 현금
+       public String varcode;    // 5 : 바코드
     }
 }
