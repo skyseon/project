@@ -110,6 +110,7 @@ namespace Project
             {
                 Oerlap(varcode);
                 Total_Cash();
+                search_View.CurrentCell = null;
               return;
             }
 
@@ -123,6 +124,7 @@ namespace Project
 
             item_view.Rows.Add(search_Str);
             Total_Cash();
+            search_View.CurrentCell = null;
         }
 
         private void Total_Cash()   // 뷰에 총 금액을 구함
@@ -144,11 +146,13 @@ namespace Project
         {
             int amount_Ro = 2, cash_Ro = 3, total_Ro = 4;
             int index = list_Var.IndexOf(varcode);
+            if (index == -1) index = Convert.ToInt32(varcode);
 
             int amount = Convert.ToInt32(item_view.Rows[index].Cells[amount_Ro].Value.ToString());  //수량 가져오기
             int cash = Convert.ToInt32(item_view.Rows[index].Cells[cash_Ro].Value.ToString());      //단가 가져오기
 
-            amount += 1;
+            if(varcode.Length > 5)
+                amount += 1;
             item_view.Rows[index].Cells[amount_Ro].Value = amount + "";           // 수량 업데이트
             item_view.Rows[index].Cells[total_Ro].Value = amount * cash + "";     // 총금액 업데이트
 
@@ -170,6 +174,13 @@ namespace Project
         {
             if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))
                 e.Handled = true;
+        }
+
+        private void item_view_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            String index = item_view.CurrentCell.RowIndex + "";
+            Oerlap(index);
+            Total_Cash();
         }
     }
     class DicImfor

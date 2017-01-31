@@ -62,6 +62,7 @@
             this.f1Btn.Name = "f1Btn";
             this.f1Btn.Size = new System.Drawing.Size(87, 71);
             this.f1Btn.TabIndex = 0;
+            this.f1Btn.TabStop = false;
             this.f1Btn.UseVisualStyleBackColor = true;
             this.f1Btn.Click += new System.EventHandler(this.Frame_button);
             // 
@@ -72,6 +73,7 @@
             this.f2Btn.Name = "f2Btn";
             this.f2Btn.Size = new System.Drawing.Size(87, 71);
             this.f2Btn.TabIndex = 1;
+            this.f2Btn.TabStop = false;
             this.f2Btn.UseVisualStyleBackColor = true;
             this.f2Btn.Click += new System.EventHandler(this.Frame_button);
             // 
@@ -82,6 +84,7 @@
             this.f3Btn.Name = "f3Btn";
             this.f3Btn.Size = new System.Drawing.Size(87, 71);
             this.f3Btn.TabIndex = 2;
+            this.f3Btn.TabStop = false;
             this.f3Btn.UseVisualStyleBackColor = true;
             this.f3Btn.Click += new System.EventHandler(this.Frame_button);
             // 
@@ -92,6 +95,7 @@
             this.f4Btn.Name = "f4Btn";
             this.f4Btn.Size = new System.Drawing.Size(89, 71);
             this.f4Btn.TabIndex = 3;
+            this.f4Btn.TabStop = false;
             this.f4Btn.UseVisualStyleBackColor = true;
             this.f4Btn.Click += new System.EventHandler(this.Frame_button);
             // 
@@ -102,6 +106,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(89, 71);
             this.button1.TabIndex = 4;
+            this.button1.TabStop = false;
             this.button1.UseVisualStyleBackColor = true;
             // 
             // panel1

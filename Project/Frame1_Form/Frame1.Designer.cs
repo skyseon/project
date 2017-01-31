@@ -111,7 +111,7 @@ namespace Project
             this.item_view.ShowRowErrors = false;
             this.item_view.Size = new System.Drawing.Size(844, 575);
             this.item_view.TabIndex = 14;
-            this.item_view.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.item_view_EditingControlShowing);
+            this.item_view.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.item_view_CellEndEdit);
             // 
             // item
             // 
