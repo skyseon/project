@@ -144,7 +144,7 @@ namespace Project.SqliteDB
                 return 0;
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
                // MessageBox.Show(e.Message);
                 return 1;
@@ -328,7 +328,7 @@ namespace Project.SqliteDB
                
                rdr.Close();
            }
-           catch (Exception e)
+           catch (Exception)
            {
                return -1;
            }

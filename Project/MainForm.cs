@@ -20,7 +20,6 @@ namespace Project
         public static DateTime dt;
         public static string year_str;
         dynamic d = null;
-        int cnt = 0;
         public MainForm()
         {
 

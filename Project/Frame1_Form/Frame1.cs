@@ -14,7 +14,6 @@ namespace Project
     public partial class Frame1 : UserControl
     {
         const int MAX = 200;        //물품 추가시 최종 개수
-        int varcode_Num = 0;        //뷰에 추가 된 코드 알기 위한 함수
         int db_item = 0;
         int search_view_num = 0;
         Sqlite_option sqlite = new Sqlite_option();
@@ -152,6 +151,25 @@ namespace Project
             amount += 1;
             item_view.Rows[index].Cells[amount_Ro].Value = amount + "";           // 수량 업데이트
             item_view.Rows[index].Cells[total_Ro].Value = amount * cash + "";     // 총금액 업데이트
+
+        }
+
+        private void item_view_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {// 편집 모드 들어갈때 (숫자만 입력 가능하게 하기 위한 함수)
+            String name = item_view.CurrentCell.OwningColumn.Name;
+            if (name == "amount" || name == "card") //
+            {
+                 e.Control.KeyPress += new KeyPressEventHandler(txtCheckNumeric_KeyPress);
+            }
+            else
+            {
+                e.Control.KeyPress -= new KeyPressEventHandler(txtCheckNumeric_KeyPress);
+            }
+        }
+        private void txtCheckNumeric_KeyPress(object sender, KeyPressEventArgs e)   //item_view 칼럼 숫자만 입력 가능
+        {
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))
+                e.Handled = true;
         }
     }
     class DicImfor

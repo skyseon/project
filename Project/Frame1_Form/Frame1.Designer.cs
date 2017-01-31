@@ -107,10 +107,11 @@ namespace Project
             this.item_view.RowHeadersWidth = 30;
             this.item_view.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.item_view.RowTemplate.Height = 23;
-            this.item_view.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.item_view.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.item_view.ShowRowErrors = false;
             this.item_view.Size = new System.Drawing.Size(844, 575);
             this.item_view.TabIndex = 14;
+            this.item_view.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.item_view_EditingControlShowing);
             // 
             // item
             // 
