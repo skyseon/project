@@ -100,7 +100,7 @@ namespace Project
             */
             int num = 0;
             int view_Varcode = 5;
-            int rowNum = 6;
+            int rowNum = 7;
             int rowIndex = search_View.CurrentRow.Index;      //현재 선택 창 가져오기
             String[] search_Str = new String[rowNum];         //기존 데이터 저장
 
@@ -119,7 +119,8 @@ namespace Project
             search_Str[num++] = "1";                            //수량
             search_Str[num++] = dic_Infor[varcode].cash+"";     //단가
             search_Str[num++] = dic_Infor[varcode].cash + "";   //총액
-            
+            //search_Str[num++] = "";
+            search_Str[++num]   = "DEL";
             list_Var.Add(varcode);      //바코드 저장
 
             item_view.Rows.Add(search_Str);

@@ -45,12 +45,6 @@ namespace Project
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frame1));
             this.item_view = new System.Windows.Forms.DataGridView();
-            this.item = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.card = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total_cash = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.change = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.search_View = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.search_Tb = new System.Windows.Forms.TextBox();
@@ -58,6 +52,13 @@ namespace Project
             this.total_Lb = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.item = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.item_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cash = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.item_view)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.search_View)).BeginInit();
             this.SuspendLayout();
@@ -82,9 +83,10 @@ namespace Project
             this.item,
             this.item_code,
             this.amount,
-            this.card,
-            this.total_cash,
-            this.change});
+            this.cash,
+            this.Column5,
+            this.Column6,
+            this.Column7});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -112,60 +114,6 @@ namespace Project
             this.item_view.Size = new System.Drawing.Size(844, 575);
             this.item_view.TabIndex = 14;
             this.item_view.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.item_view_CellEndEdit);
-            // 
-            // item
-            // 
-            this.item.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.item.HeaderText = "물품명";
-            this.item.Name = "item";
-            this.item.ReadOnly = true;
-            this.item.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.item.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.item.Width = 280;
-            // 
-            // item_code
-            // 
-            this.item_code.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.item_code.HeaderText = "제품 코드";
-            this.item_code.Name = "item_code";
-            this.item_code.ReadOnly = true;
-            this.item_code.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.item_code.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.item_code.Width = 130;
-            // 
-            // amount
-            // 
-            this.amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.amount.HeaderText = "수량";
-            this.amount.Name = "amount";
-            this.amount.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.amount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.amount.Width = 80;
-            // 
-            // card
-            // 
-            this.card.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.card.HeaderText = "단가";
-            this.card.Name = "card";
-            this.card.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.card.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.card.Width = 130;
-            // 
-            // total_cash
-            // 
-            this.total_cash.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.total_cash.HeaderText = "총액";
-            this.total_cash.Name = "total_cash";
-            this.total_cash.ReadOnly = true;
-            this.total_cash.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.total_cash.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.total_cash.Width = 130;
-            // 
-            // change
-            // 
-            this.change.HeaderText = "표시";
-            this.change.Name = "change";
-            this.change.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // search_View
             // 
@@ -268,6 +216,75 @@ namespace Project
             this.label4.TabIndex = 39;
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // item
+            // 
+            this.item.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.item.FillWeight = 593.4009F;
+            this.item.HeaderText = "물품명";
+            this.item.Name = "item";
+            this.item.ReadOnly = true;
+            this.item.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.item.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.item.Width = 270;
+            // 
+            // item_code
+            // 
+            this.item_code.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.item_code.FillWeight = 17.76652F;
+            this.item_code.HeaderText = "제품코드";
+            this.item_code.Name = "item_code";
+            this.item_code.ReadOnly = true;
+            this.item_code.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.item_code.Width = 132;
+            // 
+            // amount
+            // 
+            this.amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.amount.FillWeight = 17.76652F;
+            this.amount.HeaderText = "수량";
+            this.amount.Name = "amount";
+            this.amount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.amount.Width = 80;
+            // 
+            // cash
+            // 
+            this.cash.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.cash.FillWeight = 17.76652F;
+            this.cash.HeaderText = "금액";
+            this.cash.Name = "cash";
+            this.cash.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.cash.Width = 115;
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column5.FillWeight = 17.76652F;
+            this.Column5.HeaderText = "총금액";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column5.Width = 115;
+            // 
+            // Column6
+            // 
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column6.FillWeight = 17.76652F;
+            this.Column6.HeaderText = "표시";
+            this.Column6.Name = "Column6";
+            this.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column6.Width = 50;
+            // 
+            // Column7
+            // 
+            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column7.FillWeight = 1F;
+            this.Column7.HeaderText = "삭제";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column7.Text = "삭제";
+            this.Column7.Width = 50;
+            // 
             // Frame1
             // 
             this.BackColor = System.Drawing.Color.PowderBlue;
@@ -301,9 +318,10 @@ namespace Project
         private DataGridViewTextBoxColumn item;
         private DataGridViewTextBoxColumn item_code;
         private DataGridViewTextBoxColumn amount;
-        private DataGridViewTextBoxColumn card;
-        private DataGridViewTextBoxColumn total_cash;
-        private DataGridViewCheckBoxColumn change;
+        private DataGridViewTextBoxColumn cash;
+        private DataGridViewTextBoxColumn Column5;
+        private DataGridViewCheckBoxColumn Column6;
+        private DataGridViewButtonColumn Column7;
 
     }
 }
