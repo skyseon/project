@@ -183,6 +183,11 @@ namespace Project
             Oerlap(index);
             Total_Cash();
         }
+
+        private void item_view_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            MessageBox.Show("d");
+        }
     }
     class DicImfor
     {
