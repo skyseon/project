@@ -119,7 +119,7 @@ namespace Project
             search_Str[num++] = "1";                            //수량
             search_Str[num++] = dic_Infor[varcode].cash+"";     //단가
             search_Str[num++] = dic_Infor[varcode].cash + "";   //총액
-
+            //
             list_Var.Add(varcode);      //바코드 저장
 
             item_view.Rows.Add(search_Str);
