@@ -51,7 +51,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>불사조.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\불사조.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -205,7 +205,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\바코드.png" />
-    <Content Include="불사조.ico" />
+    <Content Include="Resources\불사조.ico" />
     <None Include="Resources\프린트1.png" />
     <None Include="Resources\바코드1.png" />
     <None Include="Resources\옵션.png" />
