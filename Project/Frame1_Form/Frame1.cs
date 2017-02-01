@@ -185,8 +185,8 @@ namespace Project
         }
 
         private void item_view_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            MessageBox.Show("d");
+        {// 표시, 삭제 클릭시 발생
+
         }
     }
     class DicImfor
