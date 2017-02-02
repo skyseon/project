@@ -187,6 +187,15 @@ namespace Project
         private void item_view_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {// 표시, 삭제 클릭시 발생
 
+            if (e.ColumnIndex == 6)
+            {
+                int room = e.RowIndex;   //저장된 바코드 방정보가져오기 
+                dic_Infor.Remove(list_Var[room]);   //해당 키 삭제
+                list_Var.RemoveAt(room);            //해당 바코드 삭제
+                item_view.Rows.RemoveAt(room);      // 아이템뷰 삭제
+
+                Total_Cash();   // 토탈 금액 설정
+            }
         }
     }
     class DicImfor
