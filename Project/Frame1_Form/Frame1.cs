@@ -185,16 +185,25 @@ namespace Project
         }
 
         private void item_view_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {// 표시, 삭제 클릭시 발생
-
+        {
             if (e.ColumnIndex == 6)
-            {
-                int room = e.RowIndex;   //저장된 바코드 방정보가져오기 
-                dic_Infor.Remove(list_Var[room]);   //해당 키 삭제
-                list_Var.RemoveAt(room);            //해당 바코드 삭제
-                item_view.Rows.RemoveAt(room);      // 아이템뷰 삭제
+             {
+                 int room = e.RowIndex;   //저장된 바코드 방정보가져오기 
+                 list_Var.RemoveAt(room);            //해당 바코드 삭제
+                 item_view.Rows.RemoveAt(room);      // 아이템뷰 삭제
+ 
+                 Total_Cash();   // 토탈 금액 설정
+             }
+        }
 
-                Total_Cash();   // 토탈 금액 설정
+        private void item_view_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter) // 아이템뷰에서 엔터 누를시
+            {
+                if (item_view.RowCount == 0)    //열이 한개도 없을시 반응 안함
+                {
+                    return;
+                }
             }
         }
     }
