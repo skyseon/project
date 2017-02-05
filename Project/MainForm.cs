@@ -1,4 +1,5 @@
 ﻿using InternetTime;
+using Project.Frame5_From;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -63,7 +64,8 @@ namespace Project
            if (sender.Equals(f1Btn)) d = new Frame1();
            else if (sender.Equals(f2Btn)) d = new Frame2();
            else if (sender.Equals(f3Btn)) d = new Frame3();
-           else d = new Frame4();
+           else if (sender.Equals(f4Btn)) d = new Frame4();     
+           else d = new Frame5();
             panel1.Controls.Clear();    //추가 컨테이너 삭제
             panel1.Controls.Add(d);
             d.Show();

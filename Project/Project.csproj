@@ -87,6 +87,12 @@
     <Compile Include="Frame3_Form\Frame3.Designer.cs">
       <DependentUpon>Frame3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frame5_From\Frame5.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Frame5_From\Frame5.Designer.cs">
+      <DependentUpon>Frame5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Print\BXLAPI.cs" />
     <Compile Include="Print\BXLAPI_x64.cs" />
     <Compile Include="Print\BXLAPI_x86.cs" />
@@ -141,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frame4_Form\Frame4.resx">
       <DependentUpon>Frame4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frame5_From\Frame5.resx">
+      <DependentUpon>Frame5.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

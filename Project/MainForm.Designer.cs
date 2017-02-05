@@ -34,7 +34,7 @@
             this.f2Btn = new System.Windows.Forms.Button();
             this.f3Btn = new System.Windows.Forms.Button();
             this.f4Btn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.f5Btn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.time_year = new System.Windows.Forms.Label();
             this.time_time = new System.Windows.Forms.Label();
@@ -49,7 +49,7 @@
             this.flowLayoutPanel1.Controls.Add(this.f2Btn);
             this.flowLayoutPanel1.Controls.Add(this.f3Btn);
             this.flowLayoutPanel1.Controls.Add(this.f4Btn);
-            this.flowLayoutPanel1.Controls.Add(this.button1);
+            this.flowLayoutPanel1.Controls.Add(this.f5Btn);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(5, 7);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1162, 79);
@@ -99,15 +99,16 @@
             this.f4Btn.UseVisualStyleBackColor = true;
             this.f4Btn.Click += new System.EventHandler(this.Frame_button);
             // 
-            // button1
+            // f5Btn
             // 
-            this.button1.Image = global::Project.Properties.Resources.옵션;
-            this.button1.Location = new System.Drawing.Point(377, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(89, 71);
-            this.button1.TabIndex = 4;
-            this.button1.TabStop = false;
-            this.button1.UseVisualStyleBackColor = true;
+            this.f5Btn.Image = global::Project.Properties.Resources.옵션;
+            this.f5Btn.Location = new System.Drawing.Point(377, 3);
+            this.f5Btn.Name = "f5Btn";
+            this.f5Btn.Size = new System.Drawing.Size(89, 71);
+            this.f5Btn.TabIndex = 4;
+            this.f5Btn.TabStop = false;
+            this.f5Btn.UseVisualStyleBackColor = true;
+            this.f5Btn.Click += new System.EventHandler(this.Frame_button);
             // 
             // panel1
             // 
@@ -178,7 +179,7 @@
         private System.Windows.Forms.Label time_year;
         private System.Windows.Forms.Label time_time;
         private Multimedia.Timer time_timer;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button f5Btn;
 
     }
 }
