@@ -128,6 +128,7 @@
     <Compile Include="Frame1_Form\Frame1.Designer.cs">
       <DependentUpon>Frame1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sharing\InputDevice.cs" />
     <Compile Include="Sharing\Print.cs" />
     <Compile Include="Sharing\SNTPClient.cs" />
     <Compile Include="Sharing\Timer.cs" />
