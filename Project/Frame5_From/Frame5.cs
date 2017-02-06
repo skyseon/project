@@ -38,17 +38,6 @@ namespace Project.Frame5_From
             
         }
 
-        private void Panel1_Bt_Click(object sender, EventArgs e)
-        {
-            
-            if (sender.Equals(button2))
-            {
-                textBox1.ReadOnly = false;
-            }
-            else
-            {
-                textBox1.ReadOnly = true;
-            }
-        }
+       
     }
 }
