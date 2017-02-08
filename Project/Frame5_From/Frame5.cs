@@ -17,6 +17,7 @@ namespace Project.Frame5_From
         InputDevice id;
         int NumberOfKeyboards;
 
+        static String varcode_Key = "";
         public Frame5()
         {
             InitializeComponent();
@@ -51,9 +52,14 @@ namespace Project.Frame5_From
             {
                 usb_Tb.ReadOnly = true;
                 id = null;
+                varcode_Key = usb_Tb.Text;
+                Option_Save();
             }
         }
 
+        private void Option_Save(){
+
+        }
         private void P16_print_Bt_Click(object sender, EventArgs e) // 판넬 16 버튼 클릭시
         {
             Print pt = new Print();
