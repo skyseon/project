@@ -44,6 +44,30 @@ namespace Project.Sharing
             Disconnect();
         }
 
+        public void Adhesion_Print(String name, String cash, int size)
+        {
+            int nPositionX = 5;
+            int nPositionY = 0;
+            int nTextHeight = 0;
+
+            Connect();  //프린터 접속
+
+            // Start Document
+            if (BXLAPI.Start_Doc("Print Receipt") == false)
+                return;
+            // Start Page
+            BXLAPI.Start_Page();
+
+            nPositionY += nTextHeight;
+            nTextHeight = BXLAPI.PrintTrueFont(nPositionX, nPositionY, "맑은 고딕", size, cash + "원", false, 0, true, false);
+            nPositionY += nTextHeight;
+            nTextHeight = BXLAPI.PrintTrueFont(nPositionX, nPositionY, "Korean1x1", size, name, false, 0, true, false);
+
+            BXLAPI.End_Page();	// End Page
+            BXLAPI.End_Doc();	// End Document
+            Disconnect();
+        }
+
 
         private void Connect()
         {
