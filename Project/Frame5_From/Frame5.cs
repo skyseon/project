@@ -37,51 +37,15 @@ namespace Project.Frame5_From
             usb_Lb.Focus();
         }
 
-        private void Panel1_Bt_Click(object sender, EventArgs e)
-        {
             
             if (sender.Equals(button2))
             {
-                usb_Tb.Text = "";
-                usb_Tb.ReadOnly = false;
-                id = new InputDevice(Handle);
-                NumberOfKeyboards = id.EnumerateDevices();
-                id.KeyPressed += new InputDevice.DeviceEventHandler(m_KeyPressed);
+                textBox1.ReadOnly = false;
             }
             else
             {
-                usb_Tb.ReadOnly = true;
-                id = null;
-                varcode_Key = usb_Tb.Text;
-                Option_Save();
+                textBox1.ReadOnly = true;
             }
-        }
-
-        private void Option_Save(){
-
-        }
-        private void P16_print_Bt_Click(object sender, EventArgs e) // 판넬 16 버튼 클릭시
-        {
-            Print pt = new Print();
-            String name = P16_name_Tb.Text;
-            String cash = P16_cash_Tb.Text;
-            int size = Convert.ToInt32( P16_size_Tb.Text);
-
-            if (size < 15 )
-            {
-                size = 15;
-            }
-
-            if (name == "" || cash == "")
-            {
-                MessageBox.Show("글자를 입력하세요");
-            }
-            else
-                pt.Adhesion_Print(name, cash, size);
-            
-            P16_name_Tb.Text = "";
-            P16_cash_Tb.Text = "";
-            P16_size_Tb.Text = "15";
         }
     }
 }
